@@ -1,8 +1,8 @@
-# Curve Api
-API para a aplicação mobile Curve App
+# Medicar Api
+API para a aplicação web Medicar
 ### Setup:
 Requisitos:
-* Python 3
+* Python 3.6+
 * PostgreSQL 
 
 Recomendação - configurando o PostgreSQL (mude nome do banco, nome do usuário e senha):
