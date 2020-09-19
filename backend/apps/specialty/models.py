@@ -5,7 +5,7 @@ from django.db import models
 
 
 class Specialty(models.Model):
-    name = models.CharField(max_length=150, null=False, blank=False)
+    name = models.CharField(max_length=150)
 
     def __str__(self):
         return self.name
