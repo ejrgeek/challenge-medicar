@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'apps.core',
+    'apps.specialty',
+    'apps.doctor',
+    'apps.schedule',
 ]
 
 # 'corsheaders'
