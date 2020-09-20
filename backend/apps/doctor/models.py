@@ -11,3 +11,6 @@ class Doctor(models.Model):
     email = models.EmailField(blank=True, null=True)
     phone = models.CharField(max_length=11, blank=True, null=True)
     specialty = models.ForeignKey(Specialty, on_delete=models.CASCADE, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
