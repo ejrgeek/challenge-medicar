@@ -13,6 +13,11 @@ class ScheduleViewSet(ModelViewSet):
     http_method_names = ['get']
 
     def list(self, request, *args, **kwargs):
+        if len(request.query_params) > 0:
+            print(f"Médico: {request.query_params['medico']}")
+            print(f"Especialidade: {request.query_params['especialidade']}")
+            print(f"Data Inicio: {request.query_params['data_inicio']}")
+            print(f"Data final: {request.query_params['data_final']}")
         queryset = Schedule.objects.all()
         serializer = ScheduleSerializer(queryset, many=True)
         return Response(serializer.data)

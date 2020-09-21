@@ -16,11 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from rest_framework.authtoken import views
-
+from knox import views as knox_views
 from apps.specialty.api.viewsets import SpecialtyViewSet
 from apps.doctor.api.viewsets import DoctorViewSet
 from apps.schedule.api.viewsets import ScheduleViewSet
+from apps.accounts.api.views import RegisterUserApi, LoginUserAPI
 
 router = routers.DefaultRouter()
 router.register('especialidades', SpecialtyViewSet)
@@ -29,6 +29,8 @@ router.register('agendas', ScheduleViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth/', views.obtain_auth_token),
     path('api/', include(router.urls)),
+    path('api/login/', LoginUserAPI.as_view(), name='login'),
+    path('api/logout/', knox_views.LogoutView.as_view(), name='logout'),
+    path('api/register/', RegisterUserApi.as_view(), name='register'),
 ]

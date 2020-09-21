@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 class Timetable(models.Model):
-    time = models.TimeField()
+    time = models.TimeField(unique=True)
 
     def __str__(self):
         return f'{self.time.strftime("%H:%M")}'
@@ -16,6 +16,7 @@ class Schedule(models.Model):
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     day = models.DateField()
     schedules = models.ManyToManyField(Timetable)
+    inserted_in = models.DateField(auto_now_add=True)
 
     class Meta:
         unique_together = ("doctor", "day")
