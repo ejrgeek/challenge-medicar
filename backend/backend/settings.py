@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'apps.specialty',
     'apps.doctor',
     'apps.schedule',
+    'apps.medical_consult',
 ]
 
 # 'corsheaders'
