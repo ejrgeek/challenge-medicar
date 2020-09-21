@@ -56,6 +56,6 @@ A aplicação está no ar (localmente pelo menos rs). Ainda é necessário algum
 
 Caso você deseje fazer consumo da Api, pesque no arquivo *settings.py* a lista **CORS_ORIGIN_WHITELIST** e adicione o endereço:porta na lista para não ter problemas.
 
-Para os testes nos models, foi utilizado o [Faker](https://faker.readthedocs.io/en/master/) para gerar dados fictícios e o TestCase do Django. Para rodar os testes, use o comando *python manage.py test*.
+Para os testes nos models, foi utilizado o [Faker](https://faker.readthedocs.io/en/master/) para gerar dados fictícios, TestCase do Django e o [Factory Boy](https://pypi.org/project/factory-boy/). Para rodar os testes, use o comando *python manage.py test*.
 
 Para saber como testar a API, disponibilizei a documentação, pode ser acessada nesse link: [Documentação da API]()
