@@ -6,13 +6,9 @@ from faker import Faker
 
 class SpecialtyTestCase(TestCase):
 
-    def setUp(self):
-        print('Configurando teste de especialidade')
-        self.faker = Faker()
-
     def test_create_specialty(self):
         print("Testando criação de especialidade")
-        specialty = Specialty.objects.create(name=self.faker.name())
+        specialty = Specialty.objects.create(name=Faker().name())
         specialty.save()
         query = Specialty.objects.get(name=specialty.name)
         self.assertEquals(specialty.name, query.name)
