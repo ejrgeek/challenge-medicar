@@ -1,15 +1,17 @@
 from django.test import TestCase
 from .models import Doctor
-from faker import Faker, providers
+from faker import Faker
+from apps.specialty.models import Specialty
 # Create your tests here.
-from ..specialty.models import Specialty
 
 
 class DoctorTestCase(TestCase):
 
     def setUp(self):
+        print('\n------- MODULO DOCTOR (médico) -------')
         print("Configurando testes do model Doctor")
         self.faker = Faker('pt_BR')
+        self.specialty = Specialty.objects.create(name=self.faker.job())
 
     def test_create_doctor_only_required_fields(self):
         print("Testando criação de médico apenas com nome e crm")
@@ -28,7 +30,7 @@ class DoctorTestCase(TestCase):
             crm=self.faker.random_number(),
             email=self.faker.email(),
             phone=self.faker.phone_number(),
-            specialty=Specialty.objects.create(name=self.faker.job()),
+            specialty=self.specialty,
         )
         doctor.save()
         query = Doctor.objects.get(name=doctor.name)
