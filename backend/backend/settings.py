@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'apps.core',
     'apps.specialty',
     'apps.doctor',
@@ -66,7 +67,10 @@ REST_FRAMEWORK = {
     # 'rest_framework.authentication.TokenAuthentication',
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
-    ]
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
 }
 """
 CORS_ORIGIN_WHITELIST = [
