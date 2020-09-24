@@ -9,4 +9,4 @@ class MedicalConsultSerializer(ModelSerializer):
 
     class Meta:
         model = MedicalConsult
-        fields = ['day', 'time', 'scheduling_date', 'doctor', 'user']
+        fields = ['id', 'day', 'time', 'scheduling_date', 'doctor', 'user']

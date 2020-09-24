@@ -62,17 +62,19 @@ class MedicalConsultViewSet(ModelViewSet):
             user = User.objects.get(id=self.request.user.id)
             queryset = MedicalConsult.objects.all()
             serializer = MedicalConsultSerializer(queryset, many=True)
-            print(serializer.data)
+            consult_list = []
             for key, value in enumerate(serializer.data):
-                print(user)
-                print(value['user'])
+
                 if value['user'] == user.id:
-                    return Response({
+                    consult_list.append({
+                        'id': value['id'],
                         'day': value['day'],
                         'time': value['time'],
                         'scheduling_date': value['scheduling_date'],
                         'doctor': value['doctor']
                     })
+            if len(consult_list) > 1:
+                return Response(consult_list)
             else:
                 return Response({'message': 'Sem consultas agendadas'})
 
@@ -83,7 +85,10 @@ class MedicalConsultViewSet(ModelViewSet):
         try:
             id_consult = int(self.kwargs['pk'])
             consult = MedicalConsult.objects.get(id=id_consult)
-            consult.delete()
-            return Response()
+            if self.request.user == consult.user:
+                consult.delete()
+                return Response()
+            else:
+                return Response({'message': 'Você não tem permissão para fazer isso'})
         except Exception:
             return Response({'message': 'Nenhuma consulta com esse ID'})
