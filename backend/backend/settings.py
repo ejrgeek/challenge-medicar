@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'knox',
     'apps.accounts',
-    'apps.core',
     'apps.specialty',
     'apps.doctor',
     'apps.schedule',

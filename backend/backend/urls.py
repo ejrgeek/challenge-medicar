@@ -20,12 +20,14 @@ from knox import views as knox_views
 from apps.specialty.api.viewsets import SpecialtyViewSet
 from apps.doctor.api.viewsets import DoctorViewSet
 from apps.schedule.api.viewsets import ScheduleViewSet
+from apps.medical_consult.api.viewsets import MedicalConsultViewSet
 from apps.accounts.api.views import RegisterUserApi, LoginUserAPI
 
 router = routers.DefaultRouter()
 router.register('especialidades', SpecialtyViewSet)
 router.register('medicos', DoctorViewSet)
 router.register('agendas', ScheduleViewSet)
+router.register('consultas', MedicalConsultViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

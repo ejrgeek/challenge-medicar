@@ -1,4 +1,3 @@
-from rest_framework.fields import SerializerMethodField
 from rest_framework.serializers import ModelSerializer
 from apps.schedule.models import Schedule, Timetable
 from apps.doctor.api.serializers import DoctorSerializer
