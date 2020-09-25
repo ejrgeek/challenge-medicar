@@ -26,6 +26,14 @@ class MedicalConsultViewSet(ModelViewSet):
                    and time >= datetime.now().time() \
                    or date >= datetime.now().date()
 
+            has_consult = MedicalConsult.objects.filter(day=date, time=time)
+
+            if len(has_consult) > 0:
+                return Response(
+                    {'message', 'Uma consulta ja existe nesse horário e data'},
+                    status=403
+                )
+
             query = MedicalConsult.objects.create(
                 day=self.request.data['day'],
                 time=self.request.data['time'],
@@ -45,14 +53,14 @@ class MedicalConsultViewSet(ModelViewSet):
         except IntegrityError:
             return Response(
                 {
-                    'code': 400,
+                    'code': 403,
                     'message': 'Você já criou uma consulta como essa data e horário'
                 }
             )
         except AssertionError:
             return Response(
                 {
-                    'code': 400,
+                    'code': 403,
                     'message': 'Você não pode criar uma consulta com essa data'
                 }
             )
@@ -87,8 +95,14 @@ class MedicalConsultViewSet(ModelViewSet):
             consult = MedicalConsult.objects.get(id=id_consult)
             if self.request.user == consult.user:
                 consult.delete()
-                return Response()
+                return Response(status=204)
             else:
-                return Response({'message': 'Você não tem permissão para fazer isso'})
+                return Response(
+                    {'message': 'Você não tem permissão para fazer isso'},
+                    status=403
+                )
         except Exception:
-            return Response({'message': 'Nenhuma consulta com esse ID'})
+            return Response(
+                {'message': 'Nenhuma consulta com esse ID'},
+                status=404
+            )
