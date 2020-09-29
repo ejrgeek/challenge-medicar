@@ -1,0 +1,51 @@
+<app-header></app-header>
+
+<div class="center">
+    <mat-card class="card mat-elevation-z0" >
+            
+        <form [formGroup] = 'form'>
+            
+            <mat-form-field  appearance="outline">
+                <mat-select formControlName='specialty' placeholder="Especialidade" [(value)]="specialtySelected">
+                  <mat-option *ngFor="let specialty of specialtyList"
+                  [value]="specialty" >{{ specialty.name }}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <!--[disabled]='disabledDoctor.value'-->
+            <mat-form-field  appearance="outline">
+                <mat-select formControlName='doctor' placeholder="Médico" [(value)]="specialtySelected" >
+                  <mat-option *ngFor="let specialty of specialtyList"
+                  [value]="specialty"  >{{ specialty.name }}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field  appearance="outline">
+                <mat-select formControlName='day' placeholder="Data" [(value)]="specialtySelected">
+                  <mat-option *ngFor="let specialty of specialtyList"
+                  [value]="specialty" (click)='teste()' >{{ specialty.name }}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field  appearance="outline">
+                <mat-select formControlName='hour' placeholder="Hora" [(value)]="specialtySelected">
+                  <mat-option *ngFor="let specialty of specialtyList"
+                  [value]="specialty" >{{ specialty.name }}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+        </form>
+        
+        <div class="align-btn">
+            <div class="secondary-medicar">
+                <button mat-flat-button (click)='cancel()'  class="secondary-medicar">Cancelar</button>
+            </div>
+            <button mat-raised-button  class="primary-medicar">Confirmar</button>
+        </div>
+        
+    </mat-card>
+</div>

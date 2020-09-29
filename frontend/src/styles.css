@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+button {
+    width: 170px;
+    border-radius: 8px;
+}
+
+.primary-medicar {
+    background-color: #49B4BB;
+    font-size: 1rem;
+    color: white;
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+.secondary-medicar {
+    font-size: 1rem;
+    color: #49B4BB;
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+.secondary-medicar :hover {
+    background-color: #D9F1F3;
+}
+
+.v-middle {
+    vertical-align: middle;
+}
+
+.sb-success{
+    background-color: #49B4BB;
+    font-weight: bold;
+}
+
+.sb-success .mat-simple-snackbar-action{
+    color: white;
+}
+
+
+.sb-error{
+    background-color: red;
+    color: white;
+}
+
+.sb-error .mat-simple-snackbar-action{
+    color: white;
+}
+

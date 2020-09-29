@@ -1,0 +1,66 @@
+<div class="center">
+    <mat-card class="card mat-elevation-z0" >
+        <mat-card-title>
+            <img src="assets/logo.png" alt="logo">
+        </mat-card-title>
+            
+        <form>
+            <mat-form-field appearance="outline">
+                <mat-label>Nome</mat-label>
+                <input matInput placeholder="Ex.: ejrgeek"
+                name="name" [(ngModel)]='register.first_name'>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Ex.: ejrgeek"
+                name="username" [(ngModel)]='register.username'>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Ex.: ejrgeek"
+                name="email" [(ngModel)]='register.email'
+                type="email">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Senha</mat-label>
+                <input matInput placeholder="Senha"
+                name="password1" [type]='type'
+                [(ngModel)]='register.password'>
+
+                <button mat-button *ngIf="type"
+                    matSuffix mat-icon-button
+                    aria-label="Mudar visibilidade da senha"
+                    (click)="setVisible()">
+                    <mat-icon>{{icon}}</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Confirmar Senha</mat-label>
+                <input matInput placeholder="Confirmar Senha"
+                name="password2" [type]='type'
+                [(ngModel)]='passwordValidate'>
+
+                <button mat-button *ngIf="type"
+                    matSuffix mat-icon-button
+                    aria-label="Mudar visibilidade da senha"
+                    (click)="setVisible()">
+                    <mat-icon>{{icon}}</mat-icon>
+                </button>
+            </mat-form-field>
+            
+        </form>
+        
+        <div class="align-btn">
+            <div class="secondary-medicar">
+                <button mat-flat-button (click)='cancel()' class="secondary-medicar">Cancelar</button>
+            </div>
+            <button mat-raised-button (click)='callRegister()' class="primary-medicar">Confirmar</button>
+            
+        </div>
+        
+    </mat-card>
+</div>

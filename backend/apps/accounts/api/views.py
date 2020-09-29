@@ -1,4 +1,6 @@
+from django.contrib.auth.models import User
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from knox.models import AuthToken
 from .serializers import UserSerializer, RegisterSerializer
@@ -33,3 +35,21 @@ class LoginUserAPI(KnoxLoginView):
         user = serializer.validated_data['user']
         login(request, user)
         return super(LoginUserAPI, self).post(request, format=None)
+
+
+class UserApi(generics.GenericAPIView):
+    serializer_class = UserSerializer
+    queryset = User.objects.all()
+    http_method_names = ['get', 'head']
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        try:
+            user = User.objects.get(id=self.request.user.id)
+            return Response({
+                'name': user.first_name,
+                'email': user.email,
+                'username': user.username
+            })
+        except Exception as e:
+            return Response(status=401)

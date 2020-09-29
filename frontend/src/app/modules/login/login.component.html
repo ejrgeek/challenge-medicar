@@ -1,0 +1,42 @@
+<div class="center">
+    <mat-card class="card mat-elevation-z0" >
+        <mat-card-title>
+            <img src="assets/logo.png" alt="logo">
+        </mat-card-title>
+            
+        <form>
+            <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Ex.: ejrgeek"
+                name="username" [(ngModel)]='login.username'>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Senha</mat-label>
+                <input matInput placeholder="Senha"
+                name="password" [type]='type'
+                [(ngModel)]='login.password'>
+
+                <button mat-button *ngIf="type"
+                    matSuffix mat-icon-button
+                    aria-label="Mudar visibilidade da senha"
+                    (click)="setVisible()">
+                    <mat-icon>{{icon}}</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <mat-checkbox (click)='setRemember()' color='primary'>Lembrar minha senha</mat-checkbox>
+
+            
+        </form>
+        
+        <div class="align-btn">
+            <div class="secondary-medicar">
+                <button mat-flat-button (click)='callRegister()' class="secondary-medicar">Criar Conta</button>
+            </div>
+            <button mat-raised-button (click)='callLogin()' class="primary-medicar">Acessar</button>
+            
+        </div>
+        
+    </mat-card>
+</div>

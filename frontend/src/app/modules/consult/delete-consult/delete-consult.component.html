@@ -1,0 +1,42 @@
+<app-header></app-header>
+
+<div class="center">
+    <mat-card class="card mat-elevation-z0" >
+            
+        <form>
+            <mat-form-field appearance="outline">
+                <mat-label>Especialidade</mat-label>
+                <input matInput placeholder="Especialidade"
+                name="specialty" [value]='consult.doctor.specialty.name' disabled>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Médico</mat-label>
+                <input matInput placeholder="Médico"
+                name="doctor" [value]='consult.doctor.name' disabled>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Dia</mat-label>
+                <input matInput placeholder="Data"
+                name="date" [value]='consult.day' disabled>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Hora</mat-label>
+                <input matInput placeholder="Senha"
+                name="hour"
+                [value]='consult.time' disabled>
+            </mat-form-field>
+            
+        </form>
+        
+        <div class="align-btn">
+            <div class="secondary-medicar">
+                <button mat-flat-button (click)='cancel()'  class="secondary-medicar">Cancelar</button>
+            </div>
+            <button mat-raised-button  class="primary-medicar" color='warn'>Desmarcar</button>
+        </div>
+        
+    </mat-card>
+</div>

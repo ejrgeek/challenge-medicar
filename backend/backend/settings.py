@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'knox',
     'apps.accounts',
@@ -48,10 +49,11 @@ INSTALLED_APPS = [
     'apps.medical_consult',
 ]
 
-# 'corsheaders'
+#
 # 'rest_framework.authtoken'
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -60,19 +62,16 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-# 'corsheaders.middleware.CorsMiddleware',
-# 'django.middleware.common.CommonMiddleware',
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'knox.auth.TokenAuthentication'
     ],
 }
-"""
+
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:4200",
 ]
-"""
 
 ROOT_URLCONF = 'backend.urls'
 
