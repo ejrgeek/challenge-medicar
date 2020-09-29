@@ -42,15 +42,13 @@
         </ng-container>
 
         <!-- Action Column -->
-        <ng-container matColumnDef="action">
+        <ng-container matColumnDef="action" class="dimeno">
             <th mat-header-cell *matHeaderCellDef ></th>
             <td mat-cell *matCellDef="let row">
                 <a routerLink='/consulta/desmarcar/{{row.id}}' class="delete">
-                    <div>
-                        <button mat-flat-button class="delete">
-                            <i class="material-icons ">close</i> Desmarcar
-                        </button>
-                    </div>
+                    <button mat-flat-button class="delete">
+                        <i class="material-icons ">close</i> Desmarcar
+                    </button>
                 </a>
             </td>
         </ng-container>
