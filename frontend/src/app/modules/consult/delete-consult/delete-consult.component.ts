@@ -36,6 +36,18 @@ export class DeleteConsultComponent implements OnInit {
     });
   }
 
+  delete(): void {
+    const id = this.acRouter.snapshot.paramMap.get('id');
+    const token = this.getToken();
+    this.service.delete(token, id).subscribe(
+      () => {
+        this.service.showMessage('Consulta desmarcada');
+        this.router.navigate(['']);
+      },
+      () => this.service.showMessage('Ocorreu um erro', true)
+    );
+  }
+
   cancel(): void {
     this.router.navigate(['']);
   }

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { ConsultResponseModel } from 'src/app/shared/models/consult/consult.response.model';
+import { ScheduleModel } from 'src/app/shared/models/schedule/schedule.model';
 import { SpecialtyModel } from 'src/app/shared/models/specialty/specialy.model';
 
 @Injectable({
@@ -20,10 +21,10 @@ export class ConsultService {
       horizontalPosition: 'right',
       verticalPosition: 'top',
       panelClass: isError ? ['sb-error'] : ['sb-success'],
-    })
+    });
   }
 
-  getConsults(token: string): Observable<ConsultResponseModel[]>{
+  getConsultList(token: string): Observable<ConsultResponseModel[]>{
     const httpHeaders = new HttpHeaders(
       {'Content-Type': 'application/json',
       'Authorization': 'token ' + token},
@@ -50,6 +51,39 @@ export class ConsultService {
     );
     return this.http.get<SpecialtyModel[]>(
       this.baseUrl+'/especialidades/', { headers: httpHeaders }
-    )
+    );
+  }
+
+  getScheduleList(token: string): Observable<ScheduleModel[]>{
+    const httpHeaders = new HttpHeaders(
+      {'Content-Type': 'application/json',
+      'Authorization': 'token ' + token},
+    );
+    return this.http.get<ScheduleModel[]>(
+      this.baseUrl+'/agendas/', { headers: httpHeaders }
+    );
+  }
+
+  create(token: string, doctor: any, day: string, time: string): Observable<any>{
+    const httpHeaders = new HttpHeaders(
+      {'Content-Type': 'application/json',
+      'Authorization': 'token ' + token},
+    );
+    return this.http.post(
+      this.baseUrl+'/consultas/',
+      { day, doctor,time },
+      { headers: httpHeaders }
+    );
+  }
+
+  delete(token: string, id: any): Observable<any>{
+    const httpHeaders = new HttpHeaders(
+      {'Content-Type': 'application/json',
+      'Authorization': 'token ' + token},
+    );
+    return this.http.delete(
+      this.baseUrl+'/consultas/'+`${id}/`,
+      { headers: httpHeaders }
+    );
   }
 }

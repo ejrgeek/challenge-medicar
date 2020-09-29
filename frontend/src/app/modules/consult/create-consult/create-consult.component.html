@@ -15,25 +15,25 @@
 
             <!--[disabled]='disabledDoctor.value'-->
             <mat-form-field  appearance="outline">
-                <mat-select formControlName='doctor' placeholder="Médico" [(value)]="specialtySelected" >
-                  <mat-option *ngFor="let specialty of specialtyList"
-                  [value]="specialty"  >{{ specialty.name }}
+                <mat-select formControlName='doctor' placeholder="Médico" [(value)]="doctorSelected">
+                  <mat-option *ngFor="let doctor of doctorList"
+                  [value]="doctor"> {{ doctor.name }}
                   </mat-option>
                 </mat-select>
             </mat-form-field>
 
             <mat-form-field  appearance="outline">
-                <mat-select formControlName='day' placeholder="Data" [(value)]="specialtySelected">
-                  <mat-option *ngFor="let specialty of specialtyList"
-                  [value]="specialty" (click)='teste()' >{{ specialty.name }}
+                <mat-select formControlName='day' placeholder="Data" [(value)]="daySelected">
+                  <mat-option *ngFor="let day of dayList"
+                  [value]="day" >{{ day }}
                   </mat-option>
                 </mat-select>
             </mat-form-field>
 
             <mat-form-field  appearance="outline">
-                <mat-select formControlName='hour' placeholder="Hora" [(value)]="specialtySelected">
-                  <mat-option *ngFor="let specialty of specialtyList"
-                  [value]="specialty" >{{ specialty.name }}
+                <mat-select formControlName='hour' placeholder="Hora" [(value)]="timeSelected">
+                  <mat-option *ngFor="let time of timeList"
+                  [value]="time" >{{ time.time }}
                   </mat-option>
                 </mat-select>
             </mat-form-field>
@@ -42,9 +42,9 @@
         
         <div class="align-btn">
             <div class="secondary-medicar">
-                <button mat-flat-button (click)='cancel()'  class="secondary-medicar">Cancelar</button>
+                <button mat-flat-button (click)='cancel()' class="secondary-medicar">Cancelar</button>
             </div>
-            <button mat-raised-button  class="primary-medicar">Confirmar</button>
+            <button mat-raised-button (click)='create()' class="primary-medicar" [disabled]='disableButton'>Confirmar</button>
         </div>
         
     </mat-card>

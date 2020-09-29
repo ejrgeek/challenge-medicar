@@ -45,7 +45,7 @@ export class ConsultComponent implements OnInit {
 
   getConsult(): void {
     const token = this.getToken();
-    this.service.getConsults(token).subscribe(response => {
+    this.service.getConsultList(token).subscribe(response => {
       this.consultList = response;
     },
     error => {

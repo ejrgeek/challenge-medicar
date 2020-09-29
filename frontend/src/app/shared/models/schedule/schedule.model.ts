@@ -7,6 +7,6 @@ export interface ScheduleModel {
     schedules: ScheduleTimeModel[];
 }
 
-interface ScheduleTimeModel {
+export interface ScheduleTimeModel {
     time: string;
 }
