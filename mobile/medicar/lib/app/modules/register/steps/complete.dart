@@ -18,7 +18,7 @@ class _CompleteRegistrationState extends State<CompleteRegistration> {
   @override
   void initState() {
     super.initState();
-    DashboardRepository().getAluno();
+    DashboardRepository().getUser();
     Future.delayed(
     Duration(seconds: 2),
       () => Modular.to.pushReplacementNamed('/home'),

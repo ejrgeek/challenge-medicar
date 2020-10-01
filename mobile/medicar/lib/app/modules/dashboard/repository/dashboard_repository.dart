@@ -38,7 +38,7 @@ class DashboardRepository {
 
   //
 
-  Future<DefaultResponseModel> getAluno() async {
+  Future<DefaultResponseModel> getUser() async {
     try {
       String token = await DataStorage().getData(ConstantsUrl.token);
 
