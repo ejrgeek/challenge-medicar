@@ -16,7 +16,7 @@ abstract class _DashboardControllerBase with Store {
   UserModel user = UserModel();
   @action
   setUser() async {
-    await DashboardRepository().getAluno();
+    await DashboardRepository().getUser();
     String userData = await DataStorage().getData(ConstantsUrl.userData);
     user = UserModel.fromJson(jsonDecode(userData));
   }

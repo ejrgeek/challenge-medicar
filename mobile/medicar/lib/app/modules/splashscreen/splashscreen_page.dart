@@ -27,7 +27,7 @@ class _SplashscreenPageState
     await controller.getToken();
     String page = '/access';
     if (controller.hasToken) {
-      DashboardRepository().getAluno();
+      DashboardRepository().getUser();
       page = '/home';
     }
     return await Future.delayed(
