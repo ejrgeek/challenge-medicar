@@ -1,6 +1,8 @@
-# medicar
+# Medicar
 
-A new Flutter project.
+Demo da aplicação movel do Medicar
+
+Para rodar, é recomendável a versão mais recente do flutter e do dart, execute o comando ***fluter pub get*** depois execute o aplicativo no seu dispositivo fisico ou virtual.
 
 ## Getting Started
 
