@@ -7,3 +7,6 @@ O desafio se trata de um sistema para cadastrar consultas médicas, o usuário t
 
 ### Backend
 Alguém encarregado da clinica, irá cadastrar horários, médicos, especialidades, agendas médicas, gerenciando o corpo médico por meio do admin do django.
+
+### Mobile
+Aplicação de demonstração, apenas um incremento para o projeto, aponta para uma API propria usada para outro projeto meu, contem apenas autenticação (por parte da API) e dados mocados (para simular os endpoints da API do Medicar).
