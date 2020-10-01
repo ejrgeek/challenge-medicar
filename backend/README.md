@@ -5,6 +5,7 @@ API para a aplicação web Medicar
 Requisitos -> dev:
 * Python 3.6+
 
+Por motivos de não ser um projeto real, o arquivo .env está junto do projeto no repositório
 
 Requisitos -> deploy:
 * Python 3.6+
