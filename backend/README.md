@@ -1,11 +1,16 @@
 # Medicar Api
 API para a aplicação web Medicar
 ### Setup:
-Requisitos:
-* Python 3.6+
-* PostgreSQL 
 
-Recomendação - configurando o PostgreSQL (mude nome do banco, nome do usuário e senha):
+Requisitos -> dev:
+* Python 3.6+
+
+
+Requisitos -> deploy:
+* Python 3.6+
+* PostgreSQL
+
+( Deploy ) Recomendação - configurando o PostgreSQL (mude nome do banco, nome do usuário e senha):
 
     sudo -i -u postgres psql
     CREATE DATABASE nome_do_banco;

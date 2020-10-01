@@ -13,6 +13,15 @@ class SpecialtyViewSet(ModelViewSet):
     http_method_names = ['get']
 
     def list(self, request, *args, **kwargs):
+        querys = request.query_params
         queryset = Specialty.objects.all()
         serializer = SpecialtySerializer(queryset, many=True)
-        return Response(serializer.data)
+
+        if 'search' in querys.keys():
+            specialty = Specialty.objects.filter(
+                name__icontains=querys['search']
+            )
+            serializer = SpecialtySerializer(specialty, many=True)
+            return Response(serializer.data)
+        else:
+            return Response(serializer.data)

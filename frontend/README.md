@@ -1,5 +1,13 @@
 # Frontend
 
+Para iniciar o projeto, primeiro execute ***npm install*** ou ***yarn install***
+
+Depois execute ***npm start*** ou ***yarn start***
+
+
+---
+# README DEFAULT
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.3.
 
 ## Development server
