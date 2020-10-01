@@ -63,4 +63,4 @@ Caso você deseje fazer consumo da Api, pesque no arquivo *settings.py* a lista 
 
 Para os testes nos models você precisa usar um token válido, foi utilizado o [Faker](https://faker.readthedocs.io/en/master/) para gerar dados fictícios, TestCase do Django. Para rodar os testes, use o comando *python manage.py test*.
 
-Para saber como testar a API, disponibilizei a documentação, pode ser acessada nesse link: [Documentação da API]()
+Para saber como testar a API, disponibilizei a documentação, pode ser acessada nesse link: [Documentação da API](https://www.postman.com/collections/ed2ff31b03c9462eaedf)
