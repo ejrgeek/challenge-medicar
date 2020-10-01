@@ -29,7 +29,6 @@ class DoctorViewSet(ModelViewSet):
         serializer = DoctorSerializer(queryset, many=True)
 
         if len(querys) > 0:
-            doctors = {}
             doctors = return_query(querys)
             serializer = DoctorSerializer(doctors, many=True)
             return Response(serializer.data)

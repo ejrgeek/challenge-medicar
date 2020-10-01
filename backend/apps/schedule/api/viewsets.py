@@ -8,9 +8,9 @@ from .serializers import ScheduleSerializer
 
 def return_query(param):
     if 'medico' in param.keys() and 'especialidade' in param.keys():
-        return Schedule.objects\
-                .filter(doctor__specialty=param['especialidade'])\
-                .filter(doctor=param['medico'])
+        return Schedule.objects \
+            .filter(doctor__specialty=param['especialidade']) \
+            .filter(doctor=param['medico'])
     elif 'especialidade' in param.keys():
         return Schedule.objects.filter(doctor__specialty=param['especialidade'])
     elif 'medico' in param.keys():
@@ -27,7 +27,6 @@ class ScheduleViewSet(ModelViewSet):
         querys = request.query_params
         queryset = Schedule.objects.all()
         serializer = ScheduleSerializer(queryset, many=True)
-        print(querys)
 
         if len(querys) > 0:
             schedules = return_query(querys)
